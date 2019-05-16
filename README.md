@@ -5,6 +5,12 @@
 vue + vuex + axios + echarts + elementUi
 ```
 
+## 截图
+```
+<img src="https://github.com/lijiahui-web/vue-echarts/blob/master/src/assets/image/demo1.png"/>
+<img src="https://github.com/lijiahui-web/vue-echarts/blob/master/src/assets/image/demo2.png"/>
+```
+
 ## Project setup
 ```
 npm install
