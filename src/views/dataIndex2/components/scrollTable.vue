@@ -1,39 +1,30 @@
 <template>
   <div id="#scrollTable">
-    <el-table
-      :data="dutyRateData"
-      class="tableDemo scroll-content"
-      :style="{top}">
-      <el-table-column
-        prop="group"
-        label="日期"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="bookNum"
-        label="姓名"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="sceneNum"
-        label="地址">
-      </el-table-column>
-      <el-table-column
-        prop="dutyRate"
-        label="地址">
-      </el-table-column>
-    </el-table>
-
-    <!-- <div class="body" :style="view">
-      <div class="scroll-content" :style="{top}" >
-        <tr v-for="item in dutyRateData" :key="item.id">
-          <td>{{item.group}}</td>
-          <td>{{item.bookNum}}</td>
-          <td>{{item.sceneNum}}</td>
-          <td>{{item.dutyRate}}</td>
-        </tr>
+    <div class="scrollTable">
+      <div class="scrollTableHead">
+        <div class="headCell">班级</div>
+        <div class="headCell">班主任</div>
+        <div class="headCell">平均分</div>
       </div>
-    </div> -->
+      <div class="scrollTableBody">
+        <div class="absContent">
+          <div class="scrollContent1">
+            <div class="bodyRow" v-for="item in scrollData" :key="item.index">
+              <div class="bodyCell">{{item.group}}</div>
+              <div class="bodyCell">{{item.teacher}}</div>
+              <div class="bodyCell">{{item.score}}</div>
+            </div>
+          </div>
+          <div class="scrollContent2">
+            <div class="bodyRow" v-for="item in scrollData" :key="item.index">
+              <div class="bodyCell">{{item.group}}</div>
+              <div class="bodyCell">{{item.teacher}}</div>
+              <div class="bodyCell">{{item.score}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -53,24 +44,23 @@ export default {
     //     default:top,
     // },
     moveDistance:{//移动距离
-        type:Number,
-        default:25
+      type:Number,
+      default:25
     }
   },
   data() {
     return {
-      dutyRateData: [
-        { group: "电工班1", bookNum: 3, sceneNum: 0, dutyRate: "88%" },
-        { group: "电工班2", bookNum: 3, sceneNum: 0, dutyRate: "88%" },
-        { group: "电工班3", bookNum: 3, sceneNum: 0, dutyRate: "88%" },
-        { group: "电工班4", bookNum: 3, sceneNum: 0, dutyRate: "88%" },
-        { group: "电工班5", bookNum: 3, sceneNum: 0, dutyRate: "88%" },
-        { group: "电工班6", bookNum: 3, sceneNum: 0, dutyRate: "88%" },
-        { group: "电工班7", bookNum: 3, sceneNum: 0, dutyRate: "88%" },
-        { group: "电工班8", bookNum: 3, sceneNum: 0, dutyRate: "88%" },
-        { group: "电工班9", bookNum: 3, sceneNum: 0, dutyRate: "88%" },
-        { group: "电工班10", bookNum: 3, sceneNum: 0, dutyRate: "88%" },
-        { group: "电工班11", bookNum: 3, sceneNum: 0, dutyRate: "88%" }
+      scrollData: [
+        { group: "10级1班", id: 3, score: 87, teacher: "赵老师" },
+        { group: "10级2班", id: 3, score: 56, teacher: "钱老师" },
+        { group: "10级3班", id: 3, score: 87, teacher: "孙老师" },
+        { group: "10级4班", id: 3, score: 88, teacher: "李老师" },
+        { group: "10级5班", id: 3, score: 100, teacher: "马老师" },
+        { group: "10级6班", id: 3, score: 78, teacher: "周老师" },
+        { group: "10级7班", id: 3, score: 90, teacher: "吴老师" },
+        { group: "10级8班", id: 3, score: 76, teacher: "郑老师" },
+        { group: "10级9班", id: 3, score: 54, teacher: "王老师" },
+        { group: "10级10班", id: 3, score: 45, teacher: "诸葛老师" }
       ],
       activeIndex: 0,
       view:''
@@ -86,27 +76,74 @@ export default {
   },
   mounted() {
     this.view= {"height":this.viewHeight}
+    let height = $('.scrollContent1')[0].clientHeight;
+    $('.scrollTable').css({'height':height+37+'px'})
+    $('.scrollTableBody').css({'height':height+'px'})
     setInterval(() => {
-      //自定义滚动 出勤率
-      if (
-        this.activeIndex <
-        this.dutyRateData.length /* this.towerListArr.length */
-      ) {
-        this.activeIndex += 1;
-      } else {
-        this.activeIndex = 0;
+      let top = $('.absContent').css('top')
+      let oldValue = top.substring(0,top.length-2)
+      let newValue = Number(oldValue) - 1
+      if(newValue == height * (-1)){
+        newValue = 0
       }
-    }, 1500);
+      $('.absContent').css({'top':newValue +'px'})
+    }, 75);
   }
 };
 </script>
 <style lang="scss" scoped>
-.scroll-content {
-  //自定义滚动 间隔时间和方向
-  position: relative;
-  transition: top 0.825s; //向上移动
-}
-#scrollTable{
-  overflow: hidden;
+.scrollTable{
+  .scrollTableHead{
+    display: flex;
+    display: -ms-flexbox;
+    justify-content: space-around;
+    align-items: center;
+    height: 37px;
+    width: 100%;
+    .headCell{
+      font-size: 14px;
+      color: #586c86;
+      width: 25%;
+      height: 100%;
+      display: flex;
+      display: -ms-flexbox;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .scrollTableBody{
+    position: relative;
+    overflow: hidden;
+    .absContent{
+      position: absolute;
+      top: 0;
+      width: 100%;
+      overflow: hidden;
+    }
+    .bodyRow:nth-child(odd){
+      background-color: #1f3854;
+    }
+    .bodyRow:nth-child(2n){
+      background-color: #182b41;
+    }
+    .bodyRow{
+      display: flex;
+      display: -ms-flexbox;
+      justify-content: space-around;
+      align-items: center;
+      height: 37px;
+      width: 100%;
+      .bodyCell{
+        font-size: 14px;
+        color: #42b6f6;
+        width: 25%;
+        height: 100%;
+        display: flex;
+        display: -ms-flexbox;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
 }
 </style>

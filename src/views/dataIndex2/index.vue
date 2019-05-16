@@ -12,7 +12,7 @@
     </div>
     <div class="right-container">
       <circleLineChart class="chartComponent circleLineChart"/>
-      <!-- <scrollTable class="chartComponent scrollTable"/> -->
+      <scrollTable class="chartComponent scrollTable"/>
     </div>
   </div>
 </template>
@@ -20,7 +20,7 @@
 import CategoryChart from './components/categoryChart'
 import RadialChart from './components/radialChart'
 import CircleLineChart from './components/circleLineChart'
-// import ScrollTable from './components/scrollTable'
+import ScrollTable from './components/scrollTable'
 import BeautyPieChart from './components/beautyPieChart'
 import Bar3DChart from './components/bar3DChart'
 export default {
@@ -29,7 +29,7 @@ export default {
     CategoryChart,
     RadialChart,
     CircleLineChart,
-    // ScrollTable,
+    ScrollTable,
     BeautyPieChart,
     Bar3DChart
   }
