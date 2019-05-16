@@ -30,26 +30,9 @@
 <script>
 export default {
   name: 'scrollTable',
-  props: {
-    viewHeight: {//可视窗口
-      type: [Number, String],
-      default: "200px"
-    },
-    // animationTime: {//移动间隔
-    //   type: [Number, String],
-    //   default: "0.825s"
-    // },
-    // direction:{//移动方向
-    //     type:String,
-    //     default:top,
-    // },
-    moveDistance:{//移动距离
-      type:Number,
-      default:25
-    }
-  },
   data() {
     return {
+      timeInter: null,
       scrollData: [
         { group: "10级1班", id: 3, score: 87, teacher: "赵老师" },
         { group: "10级2班", id: 3, score: 56, teacher: "钱老师" },
@@ -66,29 +49,36 @@ export default {
       view:''
     };
   },
-  methods: {
-  },
-  computed: {
-    top() {
-      return -this.activeIndex * this.moveDistance + "px"; //定义移动的单元高度
-    },
-    
-  },
   mounted() {
-    this.view= {"height":this.viewHeight}
-    let height = $('.scrollContent1')[0].clientHeight;
-    $('.scrollTable').css({'height':height+37+'px'})
-    $('.scrollTableBody').css({'height':height+'px'})
-    setInterval(() => {
-      let top = $('.absContent').css('top')
-      let oldValue = top.substring(0,top.length-2)
-      let newValue = Number(oldValue) - 1
-      if(newValue == height * (-1)){
-        newValue = 0
-      }
-      $('.absContent').css({'top':newValue +'px'})
-    }, 75);
-  }
+    this.scrollInit()
+  },
+  methods: {
+    scrollInit() {
+      let that = this
+      let height = $('.scrollContent1')[0].clientHeight;
+      $('.scrollTable').css({'height':height+37+'px'})
+      $('.scrollTableBody').css({'height':height+'px'})
+      this.setInter()
+      $('.scrollTableBody').on('mouseover',function(){
+        window.clearInterval(that.timeInter)
+      })
+      $('.scrollTableBody').on('mouseout',function(){
+        that.setInter()
+      })
+    },
+    setInter() {
+      let height = $('.scrollContent1')[0].clientHeight;
+      this.timeInter = setInterval(() => {
+        let top = $('.absContent').css('top')
+        let oldValue = top.substring(0,top.length-2)
+        let newValue = Number(oldValue) - 1
+        if(newValue == height * (-1)){
+          newValue = 0
+        }
+        $('.absContent').css({'top':newValue +'px'})
+      }, 70);
+    }
+  },
 };
 </script>
 <style lang="scss" scoped>
