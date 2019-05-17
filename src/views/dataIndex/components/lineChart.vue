@@ -30,7 +30,10 @@ export default {
         tooltip: {
           tirgger: 'axis',
           axisPointer: {
-            type: 'line'
+            type: 'cross',
+            label: {
+              backgroundColor: '#6a7985'
+            }
           }
         },
         grid: {
@@ -59,7 +62,30 @@ export default {
         series: [{
           data: [820, 932, 901, 934, 1290, 1330, 1320],
           type: 'line',
-          smooth: true
+          symbolSize:5, //折线点的大小
+          areaStyle: {normal: {}},
+          itemStyle: {
+            normal: {
+              color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                offset: 0, color: '#3794b1'
+              },{
+                offset: 1, color: '#86b0bd'
+              }]),
+              lineStyle: {
+                width: 2,
+                type: 'solid',
+                color: '#777'
+              }
+            },
+            emphasis: {  
+              color: '#4fd6d2',  
+              lineStyle: {        // 系列级个性化折线样式  
+                width:2,  
+                type: 'dotted',  
+                color: "#4fd6d2" //折线的颜色
+              }
+            }
+          }
         }]
       });
     }
