@@ -9,7 +9,7 @@ export default {
   name: 'pieChart',
   data() {
     return {
-      title: '饼状图标题'
+      title: '饼状图'
     }
   },
   mounted() {
