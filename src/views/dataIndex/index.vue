@@ -11,7 +11,7 @@
     </div>
     <div class="right-container">
       <pieChart class="chartComponent pieChart"/>
-      <pieChart2 class="chartComponent pieChart2"/>
+      <barChart2 class="chartComponent barChart2"/>
     </div>
   </div>
 </template>
@@ -22,7 +22,7 @@ import ChinaMap from './components/chinaMap'
 import PieChart from './components/pieChart'
 import TableData from './components/tableData'
 import BarChart from './components/barChart'
-import PieChart2 from './components/pieChart2'
+import BarChart2 from './components/barChart2'
 export default {
   name: 'dataIndex',
   components: {
@@ -32,7 +32,7 @@ export default {
     PieChart,
     TableData,
     BarChart,
-    PieChart2
+    BarChart2
   }
 }
 </script>
@@ -47,7 +47,7 @@ export default {
   }
   .left-container{
     float: left;
-    width: 600px;
+    width: 500px;
     .lineChart{
       color: #ffffff;
     }
@@ -60,7 +60,7 @@ export default {
   }
   .middle-container{
     float: left;
-    width: 800px;
+    width: calc(100vw - 1020px);
     .chinaMap{
       color: #ffffff;
     }
@@ -71,7 +71,7 @@ export default {
     .pieChart{
       color: #ffffff;
     }
-    .pieChart2{
+    .barChart2{
       color: #ffffff;
     }
   }
