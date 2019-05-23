@@ -213,11 +213,11 @@ export default {
           roam: true,
           itemStyle: {
             normal: {
-              areaColor: '#323c48',
-              borderColor: '#404a59'
+              areaColor: '#555555', //背景颜色
+              borderColor: '#404a59'  //分割线颜色
             },
             emphasis: {
-              areaColor: '#2a333d'
+              areaColor: '#2a333d'  //高亮区域背景色
             }
           }
         },

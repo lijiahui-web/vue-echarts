@@ -46,7 +46,7 @@ export default {
           top: 104,
           left: 76,
           bottom: 97,
-          right: 45
+          right: 55
         },
         legend: {
           data: ['18岁以内', '19-25岁'],
@@ -118,7 +118,7 @@ export default {
             color: '#666'
           }
         },
-        yAxis: {
+        yAxis: [{
           type: 'category',
           splitLine: {
             show: false
@@ -134,7 +134,26 @@ export default {
             color: '#666'
           },
           data: ['学校1', '学校2', '学校3', '学校4', '学校5']
-        },
+        },{
+          show: true,
+          inverse: true,
+          data: ['16','4','14','9','15'],
+          axisLabel: {
+            textStyle: {
+              fontSize:12,
+              color: '#666',
+            },
+          },
+          axisLine: {
+            show: false
+          },
+          splitLine: {
+            show: false
+          },
+          axisTick: {
+            show: false
+          },
+        }],
         series: [{
           name: '18岁以内',
           type: 'bar',
@@ -146,7 +165,21 @@ export default {
           type: 'bar',
           stack: 'a',
           barWidth: '30%',
-          data: ['7', '2', '9', '1', '12']
+          data: ['7', '2', '9', '1', '12'],
+          // label: {
+          //   normal: {
+          //     show: true,
+          //     position: 'right',
+          //     // distance: 10,
+          //     formatter: function(param) {
+          //       return param.value
+          //     },
+          //     textStyle: {
+          //       color: '#000000',
+          //       fontSize: '16'
+          //     }
+          //   }
+          // }
         }]
       }
       myChart.setOption(options)
@@ -157,6 +190,6 @@ export default {
 <style lang="scss" scoped>
 #barChart2{
   width: 100%;
-  height: 340px;
+  height: 440px;
 }
 </style>

@@ -41,6 +41,9 @@ export default {
   .chartComponent{
     margin: 20px;
     background: #1d344d;
+    border:1px transparent solid;
+    border-image:linear-gradient(to top,#705486,#23b7cb) 1 10;
+    border-radius: 5px;
     .el-header{
       text-align: left;
     }
