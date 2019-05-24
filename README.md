@@ -3,6 +3,7 @@
 ## 项目框架
 ```
 vue + vuex + axios + echarts + elementUi
+包括折线图最后一段设置为虚线、饼状图模块依次高亮显示循环、循环滚动table、接入百度地图sdk
 ```
 
 ## 截图
