@@ -42,7 +42,7 @@ export default {
     margin: 20px;
     background: #1d344d;
     border:1px transparent solid;
-    border-image:linear-gradient(to top,#705486,#23b7cb) 1 10;
+    border-image:linear-gradient(to right, red 0%, blue 30%, yellow 60%, green 90%) 5;
     border-radius: 5px;
     .el-header{
       text-align: left;

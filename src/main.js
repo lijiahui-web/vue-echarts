@@ -12,6 +12,7 @@ Vue.config.productionTip = false
 Vue.use(ElementUI, { locale })
 import './assets/css/common.scss'
 import './assets/css/resetUi.scss'
+import 'echarts/extension/bmap/bmap';
 Vue.prototype.$echarts = echarts
 
 import { ajax } from '@/utils/commonAjax'

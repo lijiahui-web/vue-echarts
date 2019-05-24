@@ -166,20 +166,46 @@ export default {
           stack: 'a',
           barWidth: '30%',
           data: ['7', '2', '9', '1', '12'],
-          // label: {
-          //   normal: {
-          //     show: true,
-          //     position: 'right',
-          //     // distance: 10,
-          //     formatter: function(param) {
-          //       return param.value
-          //     },
-          //     textStyle: {
-          //       color: '#000000',
-          //       fontSize: '16'
-          //     }
-          //   }
-          // }
+          markPoint: {
+            symbol: 'path://M0 0 h 300 v -20 l 80 40 l -80 40 v -20 h -300 z',
+            data : [
+                {type : 'max', name: '最大值'},
+                {type : 'min', name: '最小值'}
+            ],
+            // formatter: function(params){
+            //   console.log(params.data.symbol.replace('image://', ''))
+            //   // return '<img src="' + params.data.symbol.replace('image://', '')+ '"/>';
+            //   return '123';
+            // },
+            symbolSize:[30,15],
+            // data: [
+            //     {coord: [0,10],symbolOffset:[20,-20],symbol:'image://../../assets/image/demo1.png'},
+            //     {coord: [1,10],symbolOffset:[20,-20],symbol:'image://../../assets/image/demo2.png'},
+            //     {coord: [2,20],symbolOffset:[20,-20],symbol:'image://../../assets/image/demo1.png'},
+            //     {coord: [3,20],symbolOffset:[20,-20],symbol:'image://../../assets/image/demo2.png'},
+            //     {coord: [4,20],symbolOffset:[20,-20],symbol:'image://../../assets/image/demo1.png'},
+            //     {coord: [5,20],symbolOffset:[20,-20],symbol:'image://../../assets/image/demo2.png'},
+            //     {coord: [6,20],symbolOffset:[20,-20],symbol:'image://../../assets/image/demo1.png'},
+            // ],
+            label:{
+              show:true,
+              position:'right'
+            }
+          },
+          label: {
+            normal: {
+              show: true,
+              position: 'right',
+              // distance: 10,
+              formatter: function(param) {
+                return param.value
+              },
+              textStyle: {
+                color: '#000000',
+                fontSize: '16'
+              }
+            }
+          }
         }]
       }
       myChart.setOption(options)
