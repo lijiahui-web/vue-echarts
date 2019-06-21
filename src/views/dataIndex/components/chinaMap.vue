@@ -230,7 +230,7 @@ export default {
 <style lang="scss" scoped>
 #chinaMapChart{
   width: 100%;
-  height: 500px;
+  height: 400px;
   padding: 0 20px;
 }
 </style>

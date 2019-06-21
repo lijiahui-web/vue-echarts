@@ -221,7 +221,8 @@ export default {
         { name: "菏泽", value: 194 },
         { name: "合肥", value: 229 },
         { name: "武汉", value: 273 },
-        { name: "大庆", value: 279 }
+        { name: "大庆", value: 279 },
+        { name: "北京四中", value: 500 },
       ];
       var convertData = function(data) {
         var res = [];
