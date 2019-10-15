@@ -33,6 +33,14 @@ export default {
     TableData,
     BarChart,
     BarChart2
+  },
+  mounted() {
+    this.init();
+  },
+  methods: {
+    init() {
+      console.log(process.env.VUE_APP_BASE_URL);
+    }
   }
 }
 </script>
