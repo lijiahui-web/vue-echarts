@@ -4,9 +4,11 @@
   "private": true,
   "author": "lijiahui",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "servelocal": "vue-cli-service serve --mode local",
+    "servetest": "vue-cli-service serve --mode test",
+    "buildtest": "vue-cli-service build --mode test",
+    "servepro": "vue-cli-service serve --mode production",
+    "buildpro": "vue-cli-service build --mode production"
   },
   "dependencies": {
     "axios": "^0.18.0",
