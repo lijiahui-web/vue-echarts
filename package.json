@@ -4,11 +4,11 @@
   "private": true,
   "author": "lijiahui",
   "scripts": {
-    "servelocal": "vue-cli-service serve --mode local",
-    "servetest": "vue-cli-service serve --mode test",
+    "buildpro": "vue-cli-service build --mode production",
     "buildtest": "vue-cli-service build --mode test",
+    "servelocal": "vue-cli-service serve --mode local",
     "servepro": "vue-cli-service serve --mode production",
-    "buildpro": "vue-cli-service build --mode production"
+    "servetest": "vue-cli-service serve --mode test"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -23,7 +23,7 @@
     "vuex": "^3.0.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.7.0",
+    "@vue/cli-plugin-babel": "^3.12.1",
     "@vue/cli-plugin-eslint": "^3.7.0",
     "@vue/cli-service": "^3.7.0",
     "babel-eslint": "^10.0.1",
