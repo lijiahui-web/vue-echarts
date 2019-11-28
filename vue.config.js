@@ -1,6 +1,6 @@
 const webpack = require('webpack')
 module.exports = {
-  publicPath: process.env.NODE_ENV == "development" ? "./" : "https://github.com/lijiahui-web/vue-echarts/tree/master/dist",
+  publicPath: "./",
   configureWebpack: {
     plugins: [
       new webpack.ProvidePlugin({
