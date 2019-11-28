@@ -11,7 +11,7 @@
     "servetest": "vue-cli-service serve --mode test"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "core-js": "^2.6.5",
     "echarts": "^4.2.1",
     "echarts-gl": "^1.1.1",
